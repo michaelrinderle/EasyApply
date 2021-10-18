@@ -28,6 +28,9 @@
 
 namespace EasyApply.Enums
 {
+    /// <summary>
+    /// Database type
+    /// </summary>
     public enum DatabaseType
     {
         Sqlite

@@ -34,6 +34,9 @@ using System.Diagnostics;
 
 namespace EasyApply.Factories
 {
+    /// <summary>
+    /// Campaign factory
+    /// </summary>
     public class CampaignFactory : ICampaignFactory
     {
         public override ICampaign CreateCampaign(string path)
@@ -41,7 +44,7 @@ namespace EasyApply.Factories
             var yml = YmlConfigurationParser.LoadConfiguration(path);
             switch (yml.JobConfiguration?.JobType)
             {
-                case Enums.JobType.Indeed:
+                case Enums.OpportunityType.Indeed:
                     {
                         return new IndeedCampaign(yml);
                     }

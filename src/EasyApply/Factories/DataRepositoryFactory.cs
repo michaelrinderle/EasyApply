@@ -35,8 +35,16 @@ using System.Diagnostics;
 
 namespace EasyApply.Factories
 {
+    /// <summary>
+    /// DataRespository factory
+    /// </summary>
     public class DataRepositoryFactory : IDataRepositoryFactory
     {
+        /// <summary>
+        /// Create Repository
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
         public override IDataRepository CreateRepository(DatabaseType type)
         {
             switch (type)

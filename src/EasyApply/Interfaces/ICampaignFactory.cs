@@ -28,8 +28,16 @@
 
 namespace EasyApply.Interfaces
 {
+    /// <summary>
+    /// Campaign factory interface
+    /// </summary>
     public abstract class ICampaignFactory
     {
+        /// <summary>
+        /// Create campaign
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
         public abstract ICampaign CreateCampaign(string path);
     }
 }

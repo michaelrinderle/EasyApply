@@ -26,11 +26,14 @@
 
 */
 
-using EasyApply.Campaigns.Indeed;
+using EasyApply.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace EasyApply.Data
 {
+    /// <summary>
+    /// EF Sqlite db context
+    /// </summary>
     public class SqliteContext : DbContext
     {
         public SqliteContext() { }
@@ -39,6 +42,10 @@ namespace EasyApply.Data
 
         public virtual DbSet<IndeedOpportunity> IndeedOpportunity { get; set; }
 
+        /// <summary>
+        /// Database configuration
+        /// </summary>
+        /// <param name="optionsBuilder"></param>
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -47,6 +54,10 @@ namespace EasyApply.Data
             }
         }
 
+        /// <summary>
+        /// Database models
+        /// </summary>
+        /// <param name="modelBuilder"></param>
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<IndeedOpportunity>().HasIndex(x => x.Id).IsUnique();

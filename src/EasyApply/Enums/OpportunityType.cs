@@ -26,21 +26,13 @@
 
 */
 
-using EasyApply.Enums;
-
-namespace EasyApply.Models
+namespace EasyApply.Enums
 {
-    public class JobConfiguration
+    /// <summary>
+    /// Opportunity type
+    /// </summary>
+    public enum OpportunityType
     {
-        public JobType JobType { get; set; }
-        public DatabaseType Database { get; set; }
-        public string? Username { get; set; }
-        public string? Password { get; set; }  
-        public string? Position { get; set; }
-        public string? Location { get; set; }
-        public string? Resume { get; set; }
-        public string? CoverLetter { get; set; }
-        public string[]? Whitelist { get; set; }
-        public string[]? Blacklist { get; set; }
+        Indeed,
     }
 }

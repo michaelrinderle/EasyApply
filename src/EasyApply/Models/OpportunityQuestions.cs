@@ -28,7 +28,10 @@
 
 namespace EasyApply.Models
 {
-    public class JobQuestions
+    /// <summary>
+    /// Yml job questions configuration class
+    /// </summary>
+    public class OpportunityQuestions
     {
         public string Substring { get; set; }
         public string Answer { get; set; }
