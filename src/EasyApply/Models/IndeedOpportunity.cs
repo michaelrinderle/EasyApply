@@ -26,9 +26,7 @@
 
 */
 
-using EasyApply.Models;
-
-namespace EasyApply.Campaigns.Indeed
+namespace EasyApply.Models
 {
     public class IndeedOpportunity : Opportunity
     {

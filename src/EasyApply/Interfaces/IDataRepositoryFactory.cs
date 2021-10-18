@@ -31,8 +31,16 @@ using EasyApply.Repositories;
 
 namespace EasyApply.Interfaces
 {
+    /// <summary>
+    /// DataRespository factory interface
+    /// </summary>
     public abstract class IDataRepositoryFactory
     {
+        /// <summary>
+        /// Create data respository
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
         public abstract IDataRepository CreateRepository(DatabaseType type);
     }
 }

@@ -33,9 +33,10 @@ using System.CommandLine.Invocation;
 
 namespace EasyAppy
 {
-    class Program
+    public class Program
     {
         public static ICampaign? Campaign { get; set; }
+
         public static bool VerboseMode { get; set; } = false;
 
         /// <summary>

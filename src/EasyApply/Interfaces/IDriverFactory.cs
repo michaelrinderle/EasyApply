@@ -31,8 +31,16 @@ using OpenQA.Selenium;
 
 namespace EasyApply.Interfaces
 {
+    /// <summary>
+    /// Driver factory interface
+    /// </summary>
     public abstract class IDriverFactory
     {
+        /// <summary>
+        /// Create web driver
+        /// </summary>
+        /// <param name="browser"></param>
+        /// <returns></returns>
         public abstract IWebDriver CreateDriver(Browser browser);
     }
 }

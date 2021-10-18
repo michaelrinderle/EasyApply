@@ -33,8 +33,11 @@ using OpenQA.Selenium;
 
 namespace EasyApply.Interfaces
 {
+    /// <summary>
+    /// Opportunity campaign interface
+    /// </summary>
     public abstract class ICampaign
-    {        
+    {
         public YmlConfiguration Configuration { get; set; }
 
         public IWebDriver? WebDriver { get; set; }
@@ -52,6 +55,10 @@ namespace EasyApply.Interfaces
                 .CreateRepository(configuration.JobConfiguration.Database);
         }
 
+        /// <summary>
+        /// Start opportunity campaign
+        /// </summary>
+        /// <returns></returns>
         public abstract Task StartCampaign();
     }
 }

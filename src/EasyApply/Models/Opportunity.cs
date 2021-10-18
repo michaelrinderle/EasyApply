@@ -31,7 +31,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EasyApply.Models
 {
-    public  class Opportunity
+    /// <summary>
+    /// Opportunity database class
+    /// </summary>
+    public class Opportunity
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

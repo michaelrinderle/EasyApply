@@ -28,11 +28,14 @@
 
 namespace EasyApply.Models
 {
+    /// <summary>
+    /// Yml configuration class
+    /// </summary>
     public class YmlConfiguration
     {
         public Browser? Browser { get; set; }
-        public JobConfiguration? JobConfiguration { get; set; }
+        public OpportunityConfiguration? JobConfiguration { get; set; }
 
-        public List<JobQuestions> JobQuestions { get; set; }
+        public List<OpportunityQuestions> JobQuestions { get; set; }
     }
 }

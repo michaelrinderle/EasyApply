@@ -40,8 +40,14 @@ using System.Text;
 
 namespace EasyApply.Factories
 {
+    /// <summary>
+    /// Driver factory
+    /// </summary>
     public class DriverFactory : IDriverFactory
     {
+        /// <summary>
+        /// Create web driver
+        /// </summary>
         public override IWebDriver CreateDriver(Browser browser)
         {
             IWebDriver driver = null;

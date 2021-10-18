@@ -26,15 +26,37 @@
 
 */
 
-using EasyApply.Campaigns.Indeed;
+using EasyApply.Models;
 
 namespace EasyApply.Repositories
 {
     public interface IDataRepository
     {
+        /// <summary>
+        /// Add Indeed opportunity to satabase
+        /// </summary>
+        /// <param name="indeedOpportunity"></param>
+        /// <returns></returns>
         Task<IndeedOpportunity> AddIndeedOpportunity(IndeedOpportunity indeedOpportunity);
+
+        /// <summary>
+        /// Get Indeed opportunity by database id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         Task<IndeedOpportunity> GetIndeedOpportunity(int id);
+
+        /// <summary>
+        /// Get all Indeed opportunities from database
+        /// </summary>
+        /// <returns></returns>
         Task<List<IndeedOpportunity>> GetIndeedOpportunities();
+
+        /// <summary>
+        /// Check for existing Indeed opportunity
+        /// </summary>
+        /// <param name="link"></param>
+        /// <returns></returns>
         Task<bool> CheckIndeedOpportunity(string link);
     }
 }

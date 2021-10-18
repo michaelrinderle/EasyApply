@@ -11,7 +11,7 @@
         Host: "127.0.0.0"
         Port: 53
 
-JobConfiguration:
+OpportunityConfiguration:
     JobType: Indeed
     Database: Sqlite
     Username: michael@sofdigital.net
@@ -28,7 +28,7 @@ JobConfiguration:
         - Senior
         - Java
 
-JobQuestions:
+OpportunityQuestions:
     - Substring: What is the highest level of education
       Answer: High School or equivalent
     - Substring: Will you be able to reliably commute or relocate

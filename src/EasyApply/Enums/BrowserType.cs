@@ -29,6 +29,9 @@
 
 namespace EasyApply.Enums
 {
+    /// <summary>
+    /// Web driver browser type
+    /// </summary>
     public enum BrowserType
     {
         Chrome,

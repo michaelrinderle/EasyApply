@@ -30,6 +30,9 @@ using EasyApply.Enums;
 
 namespace EasyApply.Models
 {
+    /// <summary>
+    /// Yml browser configuration class
+    /// </summary>
     public class Browser
     {
         public BrowserType? BrowserType { get; set; }

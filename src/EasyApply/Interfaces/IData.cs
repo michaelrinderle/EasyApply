@@ -27,10 +27,14 @@
 */
 
 using EasyApply.Campaigns.Indeed;
+using EasyApply.Models;
 using EasyApply.Repositories;
 
 namespace EasyApply.Interfaces
 {
+    /// <summary>
+    /// Data dependency injection class
+    /// </summary>
     public class IData : IDataRepository
     {
         private readonly IDataRepository _dataRepository;

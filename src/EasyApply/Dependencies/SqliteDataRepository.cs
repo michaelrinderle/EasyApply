@@ -26,21 +26,24 @@
 
 */
 
-using EasyApply.Campaigns.Indeed;
 using EasyApply.Data;
+using EasyApply.Models;
 using EasyApply.Repositories;
 using EasyAppy;
 using System.Diagnostics;
 
 namespace EasyApply.Dependencies
 {
+    /// <summary>
+    /// Sqlite Data Repository injection
+    /// </summary>
     public class SqliteDataRepository : IDataRepository
     {
         public async Task<IndeedOpportunity> AddIndeedOpportunity(IndeedOpportunity indeedOpportunity)
         {
             try
             {
-                using(var ctx = new SqliteContext())
+                using (var ctx = new SqliteContext())
                 {
                     ctx.IndeedOpportunity.Add(indeedOpportunity);
                     return await Task.FromResult(indeedOpportunity);

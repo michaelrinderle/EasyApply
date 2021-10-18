@@ -40,10 +40,7 @@ namespace EasyApply.Campaigns.Indeed
     public class IndeedCampaign : ICampaign
     {
         public IndeedCampaign(YmlConfiguration configuration)
-            : base(configuration)
-        {
-            // WebDriver = new Dri
-        }
+            : base(configuration) { }
 
         /// <summary>
         /// Start job search campaign
@@ -64,13 +61,14 @@ namespace EasyApply.Campaigns.Indeed
 
             WebDriver.Url = Constants.IndeedLoginUrl;
 
-            var login = WebDriver.FindElement(Constants.IndeedLoginCssID);
+            var login = WebDriver.FindElement(By.Id(Constants.IndeedLoginCssID));
             login.SendKeys(Configuration.JobConfiguration.Username);
 
-            var pass = WebDriver.FindElement(Constants.IndeedPasswordCssID);
+            var pass = WebDriver.FindElement(By.Id(Constants.IndeedPasswordCssID));
             pass.SendKeys(Configuration.JobConfiguration.Password);
-
-            Console.WriteLine("Hit any key after login & capture");
+            
+            // note : need user interaction to bypass captcha
+            Console.WriteLine("Hit any key after login & captcha");
             Console.ReadKey();
         }
 
@@ -79,7 +77,6 @@ namespace EasyApply.Campaigns.Indeed
         /// </summary>
         private void GetSearchPage()
         {
-
             var uri = String.Format("{0}/jobs?q={1}&l={2}",
                 Constants.IndeedUrl,
                 HttpUtility.UrlEncode(Configuration.JobConfiguration.Position),
@@ -117,10 +114,8 @@ namespace EasyApply.Campaigns.Indeed
 
                         // check for easy apply apply if opportunity is easy apply
                         if (easilyApply != null)
-                        {
                             // apply for for opportunity 
                             opportunity = this.SubmitEasyApply(opportunity);
-                        }
 
                         await DataRepository.AddIndeedOpportunity(opportunity);
 
@@ -136,6 +131,11 @@ namespace EasyApply.Campaigns.Indeed
             }
         }
 
+        /// <summary>
+        /// Parse and create opportunity link
+        /// </summary>
+        /// <param name="node"></param>
+        /// <returns></returns>
         private string ParseOpportunityLink(HtmlNode node)
         {
             return String.Format("https://www.indeed.com/viewjob?jk={0}&tk={1}",
@@ -143,11 +143,22 @@ namespace EasyApply.Campaigns.Indeed
                 node.Attributes["data-mobtk"].Value);
         }
 
+        /// <summary>
+        /// Scrape opportunity containers for parsing
+        /// </summary>
+        /// <param name="document"></param>
+        /// <returns></returns>
         private HtmlNodeCollection GetOpportunityContainers(HtmlDocument document)
         {
             return document.DocumentNode.SelectNodes(Constants.IndeedContainerCssClass);
         }
 
+        /// <summary>
+        /// Parse and create opportunity object
+        /// </summary>
+        /// <param name="node"></param>
+        /// <param name="easyApply"></param>
+        /// <returns></returns>
         private IndeedOpportunity ParseOpportunityContainer(HtmlNode node, bool easyApply)
         {
             var opportunity = new IndeedOpportunity();
@@ -165,6 +176,11 @@ namespace EasyApply.Campaigns.Indeed
             return opportunity;
         }
 
+        /// <summary>
+        /// Submit an easily apply opportunity
+        /// </summary>
+        /// <param name="opportunity"></param>
+        /// <returns></returns>
         private IndeedOpportunity SubmitEasyApply(IndeedOpportunity opportunity)
         {
             try
@@ -183,29 +199,30 @@ namespace EasyApply.Campaigns.Indeed
                 }
                 catch (NoSuchElementException)
                 {
+                    // auto apply loop
                     bool isParsing = true;
                     while (isParsing)
                     {
+                        // check for application view
                         isParsing = AutoApplyStepCheck();
                     }
                 }
 
+                // mark opportunity applied
                 opportunity.Applied = true;
             }
             catch (Exception ex)
             {
                 if (Program.VerboseMode)
                 {
-                    if (Program.VerboseMode)
-                    {
-                        Debug.WriteLine($"Easy apply exception : {ex.ToString()}");
-                    }
+                    Debug.WriteLine($"Easy apply exception : {ex.ToString()}");
                 }
-
+                    
                 opportunity.Applied = false;
             }
             finally
             {
+                // close application window & return to main search page
                 if (WebDriver.WindowHandles.Count > 0)
                     WebDriver.Close();
 
@@ -215,9 +232,13 @@ namespace EasyApply.Campaigns.Indeed
             return opportunity;
         }
 
+        /// <summary>
+        /// Step check for inputting form values
+        /// </summary>
+        /// <returns></returns>
         private bool AutoApplyStepCheck()
         {
-            var heading = WebDriver.FindElement(By.XPath("//h1[contains(@class, 'ia-BasePage-heading')]")).Text;
+            var heading = WebDriver.FindElement(By.XPath(Constants.IndeedXpathHeader)).Text;
             if(heading.Contains(Constants.IndeedResumeHeader)) ApplyResumeStep();
             else if(heading.Contains(Constants.IndeedQuestionsHeader)) ApplyQuestionsStep();
             else if(heading.Contains(Constants.IndeedPastExperienceHeader)) ApplyPastJobExperienceStep();
@@ -232,30 +253,41 @@ namespace EasyApply.Campaigns.Indeed
             return true;
         }
 
+        /// <summary>
+        /// Submit custom PDF to application
+        /// </summary>
         private void ApplyResumeStep()
         {
-            var customPdf = WebDriver.FindElement(By.XPath(Constants.IndeedXpathPdfResume));
-            customPdf.Click();
+            WebDriver.FindElement(By.XPath(Constants.IndeedXpathPdfResume)).Click();
 
             ((IJavaScriptExecutor)WebDriver).ExecuteScript("window.scrollTo(0, document.body.scrollHeight - 150)");
-
             WebDriver.FindElement(By.XPath(Constants.IndeedXpathContinueButton)).Click();
         }
 
+        /// <summary>
+        /// Submit employee questions
+        /// </summary>
         private void ApplyQuestionsStep()
         {
+            // locate questions container
             var questionsContainer = WebDriver.FindElement(By.XPath(Constants.IndeedXpathQuestionContainer));
+
+            // get questions from container
             var questions = questionsContainer.FindElements(By.XPath(Constants.IndeedXpathQuestions));
 
+            // loop over questions to answer 
             foreach (var element in questions)
             {        
+                // get input id, question, and possible answer from yml configuration
                 var inputId = element.FindElement(By.XPath(Constants.IndeedXpathInputId)).GetAttribute("for");
                 var question = element.FindElement(By.XPath(Constants.IndeedXpathLabelQuestionValue)).Text;
                 var answer = Configuration.JobQuestions.FirstOrDefault(x => question.Contains(x.Substring));
 
                 try
                 {
-                    // check for radio 
+                    WebDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
+ 
+                    // check for radio button 
                     var wait = new WebDriverWait(WebDriver, TimeSpan.FromSeconds(1));
                     var radioInput = wait.Until(d => d.FindElement(By.XPath(Constants.IndeedXpathRadioFieldset)));
 
@@ -264,6 +296,7 @@ namespace EasyApply.Campaigns.Indeed
 
                     var index = 1;
                     bool selected = false;
+                    // loop over radio options for value to match answer
                     foreach(var label in labelInputs)
                     {
                         var option = label.FindElement(By.XPath(Constants.IndeedXpathOptionValue)).Text;
@@ -281,23 +314,27 @@ namespace EasyApply.Campaigns.Indeed
                     {
                         radioInput.FindElement(By.XPath($".//input[@id = {inputId}-{2}]")).Click();
                     }
-
-                    continue;
                 }
                 catch (NoSuchElementException ex)
                 {
-                    foreach(var inputType in new List<string>() { "input", "textarea" })
+                    WebDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2);
+
+                    // check for input or textarea for question input 
+                    foreach (var inputType in new List<string>() { "input", "textarea" })
                     {
                         try
                         {
+                            // find input
                             var input = element.FindElement(By.XPath($".//{inputType}[contains(@id, {inputId})]"));
                             if (answer != null)
                             {
+                                // enter answer
                                 input.Clear();
                                 input.SendKeys(answer.Answer);
                             }
                             else
-                                input.SendKeys("8");
+                                // enter default answer
+                                input.SendKeys("6");
                         }
                         catch (NoSuchElementException) { }
                     }
@@ -308,28 +345,38 @@ namespace EasyApply.Campaigns.Indeed
             WebDriver.FindElement(By.XPath(Constants.IndeedXpathContinueButton)).Click();
         }
 
+        /// <summary>
+        /// Skip auto populated job experience step
+        /// </summary>
         private void ApplyPastJobExperienceStep()
         {
             // auto populated
             WebDriver.FindElement(By.XPath(Constants.IndeedXpathContinueButton)).Click();
         }
 
+        /// <summary>
+        /// Bypass employer qualification requirements
+        /// </summary>
         private void ApplyBypassRequiredQualifications()
         {
             ((IJavaScriptExecutor)WebDriver).ExecuteScript("window.scrollTo(0, document.body.scrollHeight - 150)");
             WebDriver.FindElement(By.XPath(Constants.IndeedXpathContinueButton)).Click();
         }
 
+        /// <summary>
+        /// Add custom or default cover letter
+        /// </summary>
         private void ApplyAddCoverLetterStep()
         {
             try
             {
+                // add resume located at yml configuration path
                 var uploadFile = WebDriver.FindElement(By.Id("additionalDocuments"));
                 uploadFile.SendKeys(Configuration.JobConfiguration.CoverLetter);
             }
             catch (NoSuchElementException)
             {
-                // write cover letter 
+                // select auto populated cover letter text
                 WebDriver.FindElement(By.XPath("//div[contains(@id, 'write-cover-letter-selection-card')]")).Click();
             }
 
@@ -337,6 +384,9 @@ namespace EasyApply.Campaigns.Indeed
             WebDriver.FindElement(By.XPath(Constants.IndeedXpathContinueButton)).Click();
         }
 
+        /// <summary>
+        /// Review, finalize & submit application
+        /// </summary>
         private void ApplyReviewStep()
         {
             ((IJavaScriptExecutor) WebDriver).ExecuteScript("window.scrollTo(0, document.body.scrollHeight - 150)");

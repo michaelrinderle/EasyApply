@@ -29,6 +29,9 @@
 
 namespace EasyApply.Models
 {
+    /// <summary>
+    /// Yml browser proxy configuration class
+    /// </summary>
     public class Proxy
     {
         public bool Enabled { get; set; }
