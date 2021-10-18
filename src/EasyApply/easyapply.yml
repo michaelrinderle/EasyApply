@@ -15,7 +15,7 @@ JobConfiguration:
     JobType: Indeed
     Database: Sqlite
     Username: michael@sofdigital.net
-    Password: 1y=S$PwLt]]YSrAn>eU5'lgi2
+    Password: null
     Position: C#
     Location: Remote
     Resume: c:\Users\michael\Desktop\michael_rinderle_resume.pdf
@@ -27,3 +27,35 @@ JobConfiguration:
     Blacklist:
         - Senior
         - Java
+
+JobQuestions:
+    - Substring: What is the highest level of education
+      Answer: High School or equivalent
+    - Substring: Will you be able to reliably commute or relocate
+      Answer: Yes, but I need relocation assistance
+    - Substring: Do you have an active security clearance
+      Answer: No
+    - Substring: Are you authorized to work in the United States
+      Answer: Yes
+    - Substring: What are your salary requirements
+      Answer: +$75K
+    - Substring: Will you, now or in the future require visa
+      Answer: No
+    - Substring: Please list 2-3 dates and time ranges that you could do an interview
+      Answer: Monday-Friday 11-6PM CST
+    - Substring: C#
+      Answer: 8
+    - Substring: C
+      Answer: 3
+    - Substring: C++
+      Answer: 3
+    - Substring: C\\C++
+      Answer: 9
+    - Substring: Front-end development
+      Answer: 8
+    - Substring: React
+      Answer: 2
+    - Substring: JavaScript
+      Answer: 8
+    - Substring: Node.js
+      Answer: 2
