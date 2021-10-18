@@ -1,0 +1,29 @@
+﻿Browser:
+    BrowserType: Firefox
+    BrowserProfile: Selenium
+    Headless: false
+    Incognito: false
+    Agent: "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0"
+    WindowHeight: 1024
+    WindowWidth: 1024
+    Proxy:
+        Enabled: "true"
+        Host: "127.0.0.0"
+        Port: 53
+
+JobConfiguration:
+    JobType: Indeed
+    Database: Sqlite
+    Username: michael@sofdigital.net
+    Password: 1y=S$PwLt]]YSrAn>eU5'lgi2
+    Position: C#
+    Location: Remote
+    Resume: c:\Users\michael\Desktop\michael_rinderle_resume.pdf
+    CoverLetter: c:\Users\michael\Desktop\michael_rinderle_cl.pdf
+    Whitelist:
+        - C#
+        - .NET
+        - .NETCore
+    Blacklist:
+        - Senior
+        - Java
