@@ -32,5 +32,7 @@ namespace EasyApply.Models
     {
         public Browser? Browser { get; set; }
         public JobConfiguration? JobConfiguration { get; set; }
+
+        public List<JobQuestions> JobQuestions { get; set; }
     }
 }

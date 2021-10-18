@@ -251,7 +251,7 @@ namespace EasyApply.Campaigns.Indeed
             {        
                 var inputId = element.FindElement(By.XPath(Constants.IndeedXpathInputId)).GetAttribute("for");
                 var question = element.FindElement(By.XPath(Constants.IndeedXpathLabelQuestionValue)).Text;
-                var answer = Constants.JobQuestions.FirstOrDefault(x => question.Contains(x.Substring));
+                var answer = Configuration.JobQuestions.FirstOrDefault(x => question.Contains(x.Substring));
 
                 try
                 {
