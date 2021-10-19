@@ -89,9 +89,13 @@ namespace EasyApply
 
         public static readonly string IndeedContainerCssClass = "//a[contains(@class, 'result')]";
 
-        public static readonly string IndeedXpathEasilyApply = ".//span[text()='Easily apply']";
+        public static readonly string IndeedXpathAppliedTag = ".//div[@id='applied-snippet']";
 
         public static readonly string IndeedXpathApplyButton = ".//button[@id='indeedApplyButton']";
+
+        public static readonly string IndeedXpathEasilyApply = ".//span[text()='Easily apply']";
+
+        public static readonly string IndeedXpathEasyResumeButton = ".//span[starts-with(., 'Apply with your Indeed Resume')]";
 
         public static readonly string IndeedXpathJobTitle = ".//h2/span";
 
@@ -113,11 +117,11 @@ namespace EasyApply
 
         public static readonly string IndeedQuestionsHeader = "Questions from";
 
-        public static readonly string IndeedPastExperienceHeader = "Enter a past job";
+        public static readonly string IndeedPastExperienceHeader = "past job";
 
-        public static readonly string IndeedQualificationsHeader = "is looking for these qualifications";
+        public static readonly string IndeedQualificationsHeader = "qualifications";
 
-        public static readonly string IndeedCoverLetterHeader = "Want to include any supporting documents";
+        public static readonly string IndeedCoverLetterHeader = "supporting documents";
 
         public static readonly string IndeedReviewHeader = "Please review your application";
 
@@ -132,8 +136,6 @@ namespace EasyApply
         public static readonly string IndeedXpathPdfResume = "//div[contains(@class, 'resume-display-container')]";
 
         public static readonly string IndeedXpathContinueButton = "//button[contains(@class, 'ia-continueButton')]";
-
-        public static readonly string IndeedXpathQuestionContainer = "//div[contains(@class, 'ia-BasePage-component')]";
 
         public static readonly string IndeedXpathQuestions = "//div[contains(@class, 'ia-Questions-item')]";
 

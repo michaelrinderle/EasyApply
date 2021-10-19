@@ -42,7 +42,7 @@ namespace EasyApply.Factories
         public override ICampaign CreateCampaign(string path)
         {
             var yml = YmlConfigurationParser.LoadConfiguration(path);
-            switch (yml.JobConfiguration?.JobType)
+            switch (yml.OpportunityConfiguration?.JobType)
             {
                 case Enums.OpportunityType.Indeed:
                     {
