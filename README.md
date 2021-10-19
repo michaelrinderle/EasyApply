@@ -13,6 +13,9 @@ Selenium Auto Application Applier
  + Simple working job questions AI engine 
  + Use browser profiles to defeat logins & captures
 
+ # Config
+ - ![easyapply.yml config file](https://github.com/michaelrinderle/easy_apply/blob/master/src/EasyApply/easyapply.yml)
+
 # Job Boards 
  + Indeed 
  + More to come 
