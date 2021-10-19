@@ -29,6 +29,8 @@ OpportunityConfiguration:
         - Java
 
 OpportunityQuestions:
+    - Substring: Do you speak English
+      Answer: Yes
     - Substring: What is the highest level of education
       Answer: High School or equivalent
     - Substring: Will you be able to reliably commute or relocate
@@ -37,25 +39,77 @@ OpportunityQuestions:
       Answer: No
     - Substring: Are you authorized to work in the United States
       Answer: Yes
+    - Substring: Are you a US born or Naturalized Citizen
+      Answer: Yes
+    - Substring: Do you require sponsorship to work
+      Answer: No
+    - Substring: Will you require any sponsorship to work in the USA now or in the future
+      Answer: No
     - Substring: What are your salary requirements
-      Answer: +$75K
+      Answer: +$90K
     - Substring: Will you, now or in the future require visa
       Answer: No
-    - Substring: Please list 2-3 dates and time ranges that you could do an interview
+    - Substring: What percentage of the time are you willing to travel for work
+      Answer: 25%
+    - Substring: Willing and able to complete a drug screen and criminal background check
+      Answer: Yes
+    - Substring: Please list 2-3 dates
       Answer: Monday-Friday 11-6PM CST
     - Substring: C#
       Answer: 8
-    - Substring: C
+    - Substring: C Experience
       Answer: 3
-    - Substring: C++
+    - Substring: C++ Experience
       Answer: 3
-    - Substring: C\\C++
-      Answer: 9
-    - Substring: Front-end development
+    - Substring: C\\C++ Experience
+      Answer: 3
+    - Substring: Embedded
+      Answer: 4
+    - Substring: Front-end development 
       Answer: 8
+    - Substring: Frontend development 
+      Answer: 8
+    - Substring: Devops
+      Answer: 4
+    - Substring: CI/CD
+      Answer: 4
+    - Substring: Python
+      Answer: 9
     - Substring: React
       Answer: 2
     - Substring: JavaScript
       Answer: 8
     - Substring: Node.js
+      Answer: 2
+    - Substring: REST
+      Answer: 6
+    - Substring: Java
+      Answer: 6
+    - Substring: .NET
+      Answer: 10
+    - Substring: ASP
+      Answer: 6
+    - Substring: Sql
+      Answer: 8
+    - Substring: Mvc
+      Answer: 6
+    - Substring: Cobol
+      Answer: 0
+    - Substring: Windows Development
+      Answer: 10
+    - Substring: Software Development
+      Answer: 10
+    - Substring: Visual Studio
+      Answer: 10
+    - Substring: API
+      Answer: 8
+    - Substring: Microsoft
+      Answer: 14
+    - Substring: Cloud
+      Answer: 14
+    - Substring: Database
+      Answer: 10
+    - Substring: Angular
+      Answer: 1
+    - Substring: Agile
       Answer: 2

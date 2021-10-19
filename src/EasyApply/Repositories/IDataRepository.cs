@@ -33,6 +33,11 @@ namespace EasyApply.Repositories
     public interface IDataRepository
     {
         /// <summary>
+        /// Initialize specific database startup sequence
+        /// </summary>
+        void InitializeDatabase();
+
+        /// <summary>
         /// Add Indeed opportunity to satabase
         /// </summary>
         /// <param name="indeedOpportunity"></param>

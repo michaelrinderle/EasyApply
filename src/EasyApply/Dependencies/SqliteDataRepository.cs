@@ -39,6 +39,24 @@ namespace EasyApply.Dependencies
     /// </summary>
     public class SqliteDataRepository : IDataRepository
     {
+        public void InitializeDatabase()
+        {
+            try
+            {
+                using (var ctx = new SqliteContext())
+                {
+                    ctx.Database.EnsureCreated();
+                }
+            }
+            catch (Exception ex)
+            {
+                if (Program.VerboseMode)
+                {
+                    Debug.WriteLine(ex);
+                }
+            }
+        }
+
         public async Task<IndeedOpportunity> AddIndeedOpportunity(IndeedOpportunity indeedOpportunity)
         {
             try

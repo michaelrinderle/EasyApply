@@ -42,6 +42,12 @@ namespace EasyApply.Interfaces
         public IData(IDataRepository dataRepository)
         {
             _dataRepository = dataRepository;
+            _dataRepository.InitializeDatabase();
+        }
+
+        public void InitializeDatabase()
+        {
+            _dataRepository.InitializeDatabase();
         }
 
         public async Task<IndeedOpportunity> AddIndeedOpportunity(IndeedOpportunity indeedOpportunity)

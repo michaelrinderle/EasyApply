@@ -52,7 +52,7 @@ namespace EasyApply.Interfaces
                 .CreateDriver(configuration.Browser);
 
             DataRepository = new DataRepositoryFactory()
-                .CreateRepository(configuration.JobConfiguration.Database);
+                .CreateRepository(configuration.OpportunityConfiguration.Database);
         }
 
         /// <summary>
