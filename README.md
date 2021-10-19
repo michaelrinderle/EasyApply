@@ -14,7 +14,7 @@ Selenium Auto Application Applier
  + Use browser profiles to defeat logins & captures
 
  # Config
- - ![easyapply.yml config file](https://github.com/michaelrinderle/easy_apply/blob/master/src/EasyApply/easyapply.yml)
+ - [easyapply.yml config file](https://github.com/michaelrinderle/easy_apply/blob/master/src/EasyApply/easyapply.yml)
 
 # Job Boards 
  + Indeed 
