@@ -7,19 +7,19 @@
     WindowHeight: 1024
     WindowWidth: 1024
     Proxy:
-        Enabled: "true"
+        Enabled: "false"
         Host: "127.0.0.0"
         Port: 53
 
 OpportunityConfiguration:
-    JobType: Indeed
+    JobType: Indeed # or Monster
     Database: Sqlite
-    Username: michael@sofdigital.net
-    Password: Vacsr1W4IQk1JK7snyf3HWdKa
-    Position: C#
+    Username: 
+    Password: 
+    Position: 
     Location: Remote
-    Resume: c:\Users\michael\Desktop\michael_rinderle_resume.pdf
-    CoverLetter: c:\Users\michael\Desktop\michael_rinderle_cl.pdf
+    Resume: c:\resume.pdf
+    CoverLetter: c:\cl.pdf
     Whitelist:
     Blacklist:
       - Sr.
@@ -30,15 +30,15 @@ IndeedConfiguration:
     BypassRequirements: true
 
 MonsterConfiguration:
-    FirstName: Michael
-    LastName: Rinderle
-    Pronouns: He\Him
-    PhoneNumber: 262-442-2042
-    PhoneType: Work
-    Country: United States
-    PostalCode: 53186
-    Region: Wisconsin
-    City: Waukesha
+    FirstName:
+    LastName:
+    Pronouns: 
+    PhoneNumber:
+    PhoneType:
+    Country: 
+    PostalCode: 
+    Region: 
+    City: 
 
 OpportunityQuestions:
 #   FirstOrder
@@ -169,7 +169,7 @@ OpportunityQuestions:
     - Substring: Please list 2-3 dates
       Answer: Monday-Friday 11-6PM CST
     - Substring: minimum salary
-      Answer: 60,000.00
+      Answer: 70,000.00
 
 #   Company
     - Substring: Were you referred
@@ -225,129 +225,129 @@ OpportunityQuestions:
     - Substring: Reasonable Accommodation
       Answer: I understand
 
-#   Languages
+#   Languages (Yrs of Experience, i.e. 1,2,3,10)
     - Substring: C#
-      Answer: 7
+      Answer: 10
     - Substring: C Experience
-      Answer: 3
+      Answer: 
     - Substring: C++ Experience
-      Answer: 3
+      Answer: 
     - Substring: C\\C++ Experience
-      Answer: 3
+      Answer: 
     - Substring: Python
-      Answer: 9
+      Answer: 
     - Substring: JavaScript
-      Answer: 8
+      Answer: 
     - Substring: Java Experience
-      Answer: 6
+      Answer: 
     - Substring: Html
-      Answer: 8
+      Answer: 
     - Substring: CSS
-      Answer: 8
+      Answer: 
     - Substring: Sass
-      Answer: 8
+      Answer: 
     - Substring: Jade
-      Answer: 8
+      Answer: 
     - Substring: ELisp
-      Answer: 2
+      Answer: 
     - Substring: Sql
-      Answer: 8
+      Answer: 
     - Substring: Cobol
-      Answer: 0
+      Answer: 
     - Substring: Ruby
-      Answer: 1
+      Answer: 
     - Substring: Typescript
-      Answer: 2
+      Answer: 
 
 #   Skills
     - Substring: Embedded
-      Answer: 4
+      Answer: 
     - Substring: Front-end development
-      Answer: 8
+      Answer: 
     - Substring: Frontend development
-      Answer: 8
+      Answer: 
     - Substring: Full-stack development
-      Answer: 8
+      Answer: 
     - Substring: Full stack development
-      Answer: 8
+      Answer: 
     - Substring: Devops
-      Answer: 4
+      Answer: 
     - Substring: CI/CD
-      Answer: 4
+      Answer: 
     - Substring: Software Development
-      Answer: 10
+      Answer: 
     - Substring: Application Development
-      Answer: 10
+      Answer: 
     - Substring: Mobile
-      Answer: 6
+      Answer: 
     - Substring: Visual Studio
-      Answer: 10
+      Answer: 
     - Substring: API
-      Answer: 8
+      Answer: 
     - Substring: MVVM
-      Answer: 6
+      Answer: 
     - Substring: CLI
-      Answer: 10
+      Answer: 
     - Substring: PLC
-      Answer: 3
+      Answer: 
     - Substring: Debugging
-      Answer: 6
+      Answer: 
     - Substring: troubleshooting
-      Answer: 6
+      Answer: 
     - Substring: OOP
-      Answer: 6
+      Answer: 
     - Substring: Management
-      Answer: 6
+      Answer: 
     - Substring: back-end
-      Answer: 6
+      Answer: 
     - Substring: service-oriented architecture
-      Answer: 1
+      Answer: 
     - Substring: technical
-      Answer: 10
+      Answer: 
     - Substring: REST
-      Answer: 6
+      Answer: 
     - Substring: Mvc
-      Answer: 6
+      Answer: 
     - Substring: Database
-      Answer: 10
+      Answer: 
     - Substring: Industry Experience
-      Answer: 6
+      Answer: 
     - Substring: Git
-      Answer: 8
+      Answer: 
     - Substring: Machine Learning
-      Answer: 2
+      Answer: 
     - Substring: Linux
-      Answer: 10
+      Answer: 
     - Substring: commercial software product development
-      Answer: 6
+      Answer: 
 
 #   Platforms
     - Substring: Cloud
-      Answer: 14
+      Answer: 
     - Substring: Microsoft
-      Answer: 14
+      Answer: 
     - Substring: Office 365
-      Answer: 14
+      Answer: 
     - Substring: cloud platform
-      Answer: 10
+      Answer: 
     - Substring: Azure
-      Answer: 10
+      Answer: 
     - Substring: Aws
-      Answer: 2
+      Answer: 
     - Substring: Google Cloud
-      Answer: 6
+      Answer: 
 
 #   Frameworks
     - Substring: React experience
-      Answer: 2
+      Answer: 
     - Substring: Node.js experience
-      Answer: 2
+      Answer: 
     - Substring: .NET
-      Answer: 10
+      Answer: 
     - Substring: ASP
-      Answer: 6
+      Answer: 
     - Substring: Angular
-      Answer: 1
+      Answer: 
 
 #   Custom Questions
     - Substring: What language are you most comfortable using and why
