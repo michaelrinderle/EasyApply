@@ -112,7 +112,8 @@ namespace EasyApply.Factories
                             process.Kill();
 
                         var firefoxOptions = new FirefoxOptions();
-                        
+                        // set window open to tab
+                        firefoxOptions.SetPreference("browser.link.open_newwindow", "2");
 
                         if (!string.IsNullOrEmpty(browser.BrowserProfile))
                         {
@@ -142,7 +143,9 @@ namespace EasyApply.Factories
                             driver.Manage().Window.Size = 
                                 new Size(int.Parse(browser.WindowWidth), int.Parse(browser.WindowHeight));
                         }
-                            
+
+                        driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+
                         return driver;
 
                     }

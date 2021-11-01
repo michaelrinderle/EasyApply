@@ -91,6 +91,8 @@ namespace EasyApply
 
         public static readonly string IndeedXpathAppliedTag = ".//div[@id='applied-snippet']";
 
+        public static readonly string IndeedXpathAppliedBugTag = "//h1[contains(@class, 'ia-HasApplied-bodyTop--text')]";
+
         public static readonly string IndeedXpathApplyButton = ".//button[@id='indeedApplyButton']";
 
         public static readonly string IndeedXpathEasilyApply = ".//span[text()='Easily apply']";
@@ -112,7 +114,7 @@ namespace EasyApply
         /// <summary>
         /// Indeed Application Headers
         /// </summary>
-        
+
         public static readonly string IndeedResumeHeader = "Add a resume";
 
         public static readonly string IndeedQuestionsHeader = "Questions from";
@@ -128,12 +130,16 @@ namespace EasyApply
         /// <summary>
         /// Indeed Application Xpaths
         /// </summary>
-       
-        public static readonly string IndeedXpathAppliedAlready = "//h1[contains(@class, 'ia-HasApplied-bodyTop--text')]";
+
+        public static readonly string IndeedJobDesriptionId = "jobDescriptionText";
+
+        public static readonly string IndeedXpathAppliedAlready = ".//div[contains(@class, 'applied-snippet')]";
 
         public static readonly string IndeedXpathHeader = "//h1[contains(@class, 'ia-BasePage-heading')]";
 
         public static readonly string IndeedXpathPdfResume = "//div[contains(@class, 'resume-display-container')]";
+
+        public static readonly string IneedXpathWriteCoverLetterButton = ".//div[contains(@id, 'write-cover-letter-selection-card')]";
 
         public static readonly string IndeedXpathContinueButton = "//button[contains(@class, 'ia-continueButton')]";
 
@@ -147,6 +153,41 @@ namespace EasyApply
 
         public static readonly string IndeedXpathLabelInputs = ".//label";
 
-        public static readonly string IndeedXpathOptionValue = ".//span[2]";        
+        public static readonly string IndeedXpathOptionValue = ".//span[2]";
+
+        /// <summary>
+        /// Monster Urls
+        /// </summary>
+
+        public static readonly string MonsterUrl = "https://www.monster.com";
+
+        public static readonly string MonsterLoginUrl = "https://www.monster.com/profile/detail";
+
+        public static readonly string MonsterLoginCssID = "email";
+
+        public static readonly string MonsterPasswordCssID = "password";
+
+
+        /// <summary>
+        /// Monster Application Xpaths
+        /// </summary>
+        public static readonly string MonsterXpathJobResults = "//div[contains(@class, 'job-search-resultsstyle__CardGrid-sc')]";
+        public static readonly string MonsterXpathJobCard = "//div/a[contains(@class, 'job-cardstyle__JobCardComponent-sc')]";
+        public static readonly string MonsterXpathApplyButton = ".//button[contains(@class, 'apply-buttonstyle__JobApplyButton')]";
+        public static readonly string MonsterXpathAppliedElement = ".//h3[contains(@class, 'message-containerstyles__MessageTitle')]";
+
+        /// <summary>
+        /// Monster Input Xpaths
+        /// </summary>
+
+        public static readonly string MonsterXpathFirstName = ".//input[@id='contactInfo.user.firstName']";
+        public static readonly string MonsterXpathLastName = ".//input[@id='contactInfo.user.lastName']";
+        public static readonly string MonsterXpathPronoun = ".//input[@id='contactInfo.contactInfo.pronoun']";
+        public static readonly string MonsterXpathPhoneNumber = ".//input[@id='contactInfo.contactInfo.primaryPhoneNumber.phoneNumber']";
+        public static readonly string MonsterXpathPhoneType = ".//select[@id='contactInfo.contactInfo.primaryPhoneNumber.phoneTypeId']/option[@selected='selected']";
+        public static readonly string MonsterXpathCountry = ".//input[@id='contactInfo.country']";
+        public static readonly string MonsterXpathPostalCode = ".//input[@id='contactInfo.postalCode']";
+        public static readonly string MonsterXpathRegion = ".//input[@id='contactInfo.region']";
+        public static readonly string MonsterXpathCity = ".//input[@id='contactInfo.city']";
     }
 }

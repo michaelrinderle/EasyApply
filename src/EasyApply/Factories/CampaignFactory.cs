@@ -27,6 +27,7 @@
 */
 
 using EasyApply.Campaigns.Indeed;
+using EasyApply.Campaigns.Monster;
 using EasyApply.Interfaces;
 using EasyApply.Parsers;
 using EasyAppy;
@@ -47,6 +48,10 @@ namespace EasyApply.Factories
                 case Enums.OpportunityType.Indeed:
                     {
                         return new IndeedCampaign(yml);
+                    }
+                case Enums.OpportunityType.Monster:
+                    {
+                        return new MonsterCampaign(yml);
                     }
                 default:
                     {

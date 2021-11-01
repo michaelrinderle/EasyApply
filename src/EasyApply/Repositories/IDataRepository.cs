@@ -63,5 +63,46 @@ namespace EasyApply.Repositories
         /// <param name="link"></param>
         /// <returns></returns>
         Task<bool> CheckIndeedOpportunity(string link);
+
+        /// <summary>
+        /// Update an existing Indeed opportunity
+        /// </summary>
+        /// <param name="indeedOpportunity"></param>
+        /// <returns></returns>
+        Task<bool> UpdateIndeedOpportunity(IndeedOpportunity indeedOpportunity);
+
+        /// <summary>
+        /// Add Monster opportunity to satabase
+        /// </summary>
+        /// <param name="MonsterOpportunity"></param>
+        /// <returns></returns>
+        Task<MonsterOpportunity> AddMonsterOpportunity(MonsterOpportunity MonsterOpportunity);
+
+        /// <summary>
+        /// Get Monster opportunity by database id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        Task<MonsterOpportunity> GetMonsterOpportunity(int id);
+
+        /// <summary>
+        /// Get all Monster opportunities from database
+        /// </summary>
+        /// <returns></returns>
+        Task<List<MonsterOpportunity>> GetMonsterOpportunities();
+
+        /// <summary>
+        /// Check for existing Monster opportunity
+        /// </summary>
+        /// <param name="link"></param>
+        /// <returns></returns>
+        Task<bool> CheckMonsterOpportunity(string link);
+
+        /// <summary>
+        /// Update an existing Monster opportunity
+        /// </summary>
+        /// <param name="MonsterOpportunity"></param>
+        /// <returns></returns>
+        Task<bool> UpdateMonsterOpportunity(MonsterOpportunity MonsterOpportunity);
     }
 }

@@ -135,5 +135,124 @@ namespace EasyApply.Dependencies
                 return false;
             }
         }
+
+        public async Task<bool> UpdateIndeedOpportunity(IndeedOpportunity indeedOpportunity)
+        {
+            try
+            {
+                using (var ctx = new SqliteContext())
+                {
+                    var update = ctx.IndeedOpportunity.Update(indeedOpportunity);
+                    return await Task.FromResult((update != null));
+                }
+            }
+            catch (Exception ex)
+            {
+                if (Program.VerboseMode)
+                {
+                    Debug.WriteLine(ex);
+                }
+                return false;
+            }
+        }
+
+        public async Task<MonsterOpportunity> AddMonsterOpportunity(MonsterOpportunity MonsterOpportunity)
+        {
+            try
+            {
+                using (var ctx = new SqliteContext())
+                {
+                    ctx.MonsterOpportunity.Add(MonsterOpportunity);
+                    return await Task.FromResult(MonsterOpportunity);
+                }
+            }
+            catch (Exception ex)
+            {
+                if (Program.VerboseMode)
+                {
+                    Debug.WriteLine(ex);
+                }
+                return null;
+            }
+        }
+
+        public async Task<List<MonsterOpportunity>> GetMonsterOpportunities()
+        {
+            try
+            {
+                using (var ctx = new SqliteContext())
+                {
+                    return await Task.FromResult(ctx.MonsterOpportunity.ToList());
+                }
+            }
+            catch (Exception ex)
+            {
+                if (Program.VerboseMode)
+                {
+                    Debug.WriteLine(ex);
+                }
+                return null;
+            }
+        }
+
+        public async Task<MonsterOpportunity> GetMonsterOpportunity(int id)
+        {
+            try
+            {
+                using (var ctx = new SqliteContext())
+                {
+                    var MonsterOpportunity = ctx.MonsterOpportunity.FirstOrDefault(x => x.Id == id);
+                    return await Task.FromResult(MonsterOpportunity);
+                }
+            }
+            catch (Exception ex)
+            {
+                if (Program.VerboseMode)
+                {
+                    Debug.WriteLine(ex);
+                }
+                return null;
+            }
+        }
+
+        public async Task<bool> CheckMonsterOpportunity(string link)
+        {
+            try
+            {
+                using (var ctx = new SqliteContext())
+                {
+                    var exists = ctx.MonsterOpportunity.Any(x => x.Link == link);
+                    return await Task.FromResult(exists);
+                }
+            }
+            catch (Exception ex)
+            {
+                if (Program.VerboseMode)
+                {
+                    Debug.WriteLine(ex);
+                }
+                return false;
+            }
+        }
+
+        public async Task<bool> UpdateMonsterOpportunity(MonsterOpportunity MonsterOpportunity)
+        {
+            try
+            {
+                using (var ctx = new SqliteContext())
+                {
+                    var update = ctx.MonsterOpportunity.Update(MonsterOpportunity);
+                    return await Task.FromResult((update != null));
+                }
+            }
+            catch (Exception ex)
+            {
+                if (Program.VerboseMode)
+                {
+                    Debug.WriteLine(ex);
+                }
+                return false;
+            }
+        }
     }
 }

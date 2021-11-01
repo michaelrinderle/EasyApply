@@ -60,5 +60,22 @@ namespace EasyApply.Interfaces
         /// </summary>
         /// <returns></returns>
         public abstract Task StartCampaign();
+
+        /// <summary>
+        /// Login into opportunity board
+        /// </summary>
+        /// <returns></returns>
+        public abstract void GetLogin();
+
+        /// <summary>
+        /// Login into opportunity board
+        /// </summary>
+        /// <returns></returns>
+        public abstract void GetSearchPage(int? page);
+
+        /// <summary>
+        /// Start opportunity Searching
+        /// </summary>
+        public abstract Task StartJobSearch();
     }
 }
