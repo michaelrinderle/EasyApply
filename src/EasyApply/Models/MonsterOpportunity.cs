@@ -26,42 +26,9 @@
 
 */
 
-using EasyApply.Models;
-using Microsoft.EntityFrameworkCore;
-
-namespace EasyApply.Data
+namespace EasyApply.Models
 {
-    /// <summary>
-    /// EF Sqlite db context
-    /// </summary>
-    public class SqliteContext : DbContext
+    public class MonsterOpportunity : Opportunity
     {
-        public SqliteContext() { }
-
-        public SqliteContext(DbContextOptions options) : base(options) { }
-
-        public virtual DbSet<IndeedOpportunity> IndeedOpportunity { get; set; }
-        public virtual DbSet<MonsterOpportunity> MonsterOpportunity { get; set; }
-
-        /// <summary>
-        /// Database configuration
-        /// </summary>
-        /// <param name="optionsBuilder"></param>
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-                optionsBuilder.UseSqlite($"Filename=indeed.db3");
-            }
-        }
-
-        /// <summary>
-        /// Database models
-        /// </summary>
-        /// <param name="modelBuilder"></param>
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<IndeedOpportunity>().HasIndex(x => x.Id).IsUnique();
-        }
     }
 }

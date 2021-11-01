@@ -30,6 +30,6 @@ namespace EasyApply.Models
 {
     public class IndeedOpportunity : Opportunity
     {
-        public bool? EasyApply { get; set; }
+        public bool EasyApply { get; set; }
     }
 }

@@ -34,5 +34,6 @@ namespace EasyApply.Enums
     public enum OpportunityType
     {
         Indeed,
+        Monster
     }
 }

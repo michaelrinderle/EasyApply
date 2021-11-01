@@ -1,115 +1,360 @@
 ﻿Browser:
     BrowserType: Firefox
     BrowserProfile: Selenium
-    Headless: false
+    Headless: true
     Incognito: false
     Agent: "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0"
     WindowHeight: 1024
     WindowWidth: 1024
     Proxy:
-        Enabled: "true"
+        Enabled: "false"
         Host: "127.0.0.0"
         Port: 53
 
 OpportunityConfiguration:
-    JobType: Indeed
+    JobType: Indeed # or Monster
     Database: Sqlite
-    Username: michael@sofdigital.net
-    Password: null
-    Position: C#
+    Username: 
+    Password: 
+    Position: 
     Location: Remote
-    Resume: c:\Users\michael\Desktop\michael_rinderle_resume.pdf
-    CoverLetter: c:\Users\michael\Desktop\michael_rinderle_cl.pdf
+    Resume: c:\resume.pdf
+    CoverLetter: c:\cl.pdf
     Whitelist:
-        - C#
-        - .NET
-        - .NETCore
     Blacklist:
-        - Senior
-        - Java
+      - Sr.
+      - Senior
+      - Java
+
+IndeedConfiguration:
+    BypassRequirements: true
+
+MonsterConfiguration:
+    FirstName:
+    LastName:
+    Pronouns: 
+    PhoneNumber:
+    PhoneType:
+    Country: 
+    PostalCode: 
+    Region: 
+    City: 
 
 OpportunityQuestions:
+#   FirstOrder
+    #   Citizenship
+    - Substring: authorized to work in the United States
+      Answer: Yes
+#   Personal
+    - Substring: Your Name
+      Answer: Michael Rinderle
+    - Substring: Today's Date
+      Answer: Oct 24 2021
+    - Substring: Country
+      Answer: United States (+1)
+    - Substring: Phone
+      Answer: 
     - Substring: Do you speak English
       Answer: Yes
+    - Substring: Are you at least 18 years or older
+      Answer: Yes
+    - Substring: Do you hold professional
+      Answer: Yes, see resume.
+    - Substring: LinkedIn Profile
+      Answer: 
+    - Substring: Address
+      Answer: 
+    - Substring: City
+      Answer: 
+    - Substring: State
+      Answer: 
+    - Substring: Postal Code
+      Answer: 
+    - Substring: Zip
+      Answer: 
+    - Substring: Sex/Gender
+      Answer: 
+    - Substring: Sex
+      Answer: 
+    - Substring: Gender
+      Answer: 
+    - Substring: Willing and able to complete a drug screen and criminal background check
+      Answer: Yes
+    - Substring: Are you willing to consent to a
+      Answer: Yes
+    - Substring: Are you willing to undergo a background check
+      Answer: Yes
+    - Substring: Have you been convicted of, pleaded guilty
+      Answer: No
+    - Substring: Skype ID
+      Answer:
+    - Substring: Do you speak Spanish
+      Answer: No
+
+#   Education
+    - Substring: Degree
+      Answer: 
+    - Substring: Graduation year
+      Answer: 
     - Substring: What is the highest level of education
       Answer: High School or equivalent
     - Substring: Will you be able to reliably commute or relocate
       Answer: Yes, but I need relocation assistance
     - Substring: Do you have an active security clearance
       Answer: No
-    - Substring: Are you authorized to work in the United States
-      Answer: Yes
+    - Substring: Do you have a Bachelor's Degree or higher in
+      Answer: No
+
+#   Citizenship
     - Substring: Are you a US born or Naturalized Citizen
       Answer: Yes
     - Substring: Do you require sponsorship to work
       Answer: No
+    - Substring: Do you now or will you in the future require sponsorship as a condition of employment?
+      Answer: No
+    - Substring: Do you now or will you in the future need sponsorship from an employer in order to obtain, extend, or renew your authorization to work in the United States
+      Answer: No
     - Substring: Will you require any sponsorship to work in the USA now or in the future
       Answer: No
-    - Substring: What are your salary requirements
-      Answer: +$90K
+    - Substring: Will you now, or in the future, require sponsorship
+      Answer: No
+    - Substring: Are you legally authorized to work
+      Answer: Yes
+    - Substring: Are you based in United States
+      Answer: Yes
+    - Substring: Are you authorized to work in the following country
+      Answer: Yes
+    - Substring: Are you authorized to work in the United States?
+      Answer: Yes
+    - Substring: require sponsorship for employment visa status
+      Answer: No
+    - Substring: H-1B visa status
+      Answer: No
     - Substring: Will you, now or in the future require visa
       Answer: No
+    - Substring: Are you currently eligible to work for
+      Answer: Yes
+    - Substring: Are you legally eligible to work in the United States
+      Answer: Yes
+    - Substring: What's your citizenship / employment eligibility
+      Answer: U.S. Citizen
+    - Substring: Do you have US work authorization
+      Answer: Yes
+    - Substring: Are you legally entitled to work in the country/jurisdiction in which you are applying
+      Answer: Yes
+    - Substring: Work Authorization
+      Answer: Yes
+
+#   Job Details
+    - Substring: How would you like to work with us?
+      Answer: W2 Employee
+    - Substring: What type of position are you seeking
+      Answer: Software Engineer
+    - Substring: salary expectation
+      Answer: 175,000.00
+    - Substring: salary requirement
+      Answer: 175,000.00
+    - Substring: desired compensation
+      Answer: 175,000.00
+    - Substring: How many hours per week (on average) are you available to work?
+      Answer: 60
+    - Substring: Which shift(s) are you available to work
+      Answer: All shifts
     - Substring: What percentage of the time are you willing to travel for work
       Answer: 25%
-    - Substring: Willing and able to complete a drug screen and criminal background check
+    - Substring: Are you able to travel overnight
+      Answer: Yes
+    - Substring: Can you relocate to
       Answer: Yes
     - Substring: Please list 2-3 dates
       Answer: Monday-Friday 11-6PM CST
+    - Substring: minimum salary
+      Answer: 70,000.00
+
+#   Company
+    - Substring: Were you referred
+      Answer: No
+    - Substring: Are you OK to go through
+      Answer: Yes
+    - Substring: Are you a current employee of
+      Answer: No
+    - Substring: Have you previously interviewed with
+      Answer: No
+    - Substring: Have you previously been employed by
+      Answer: No
+    - Substring: Would you like to receive notifications
+      Answer: Yes, I would like to receive notifications about new jobs
+    - Substring: Have you received or do you plan on receiving the COVID vaccine
+      Answer: Yes
+    - Substring: Are you willing to be in the office
+      Answer: Yes
+    - Substring: receiving text messages
+      Answer: No, I do not agree to receive text messages
+    - Substring: By applying to this
+      Answer: I understand
+    - Substring: This is a position in support of a Federal Government contract which requires US Citizenship. If hired, will you be able to provide proof that you meet this requirement?*
+      Answer: Yes
+    - Substring: Do you have friends, family members, or colleagues that are currently employed with
+      Answer: No
+    - Substring: Do you agree
+      Answer: Yes
+    - Substring: Are you currently an employee of
+      Answer: No
+    - Substring: Are you able to start your workday by at
+      Answer: Yes
+    - Substring: How many years of related experience do you have
+      Answer: 8
+    - Substring: Have you worked with any of the following
+      Answer:
+    - Substring: Have you completed any post-secondary education in a related field
+      Answer: Yes
+
+#   Legal
+    - Substring: Veteran Status
+      Answer: I am not a protected veteran
+    - Substring : information you submit will be kept confidential and may only be used in accordance with the provisions of applicable laws, executive orders, and regulations
+      Answer: I understand
+    - Substring: Disability
+      Answer: No, I Don't Have A Disability, Or A History/Record Of Having A Disability
+    - Substring: Ethnic Background
+      Answer: I choose not to provide race information.
+    - Substring: Please describe your ethnicity
+      Answer: I choose not to provide race information.
+    - Substring: Veterans invitation to self-identify
+      Answer: I am not a protected veteran
+    - Substring: Reasonable Accommodation
+      Answer: I understand
+
+#   Languages (Yrs of Experience, i.e. 1,2,3,10)
     - Substring: C#
-      Answer: 8
+      Answer: 10
     - Substring: C Experience
-      Answer: 3
+      Answer: 
     - Substring: C++ Experience
-      Answer: 3
+      Answer: 
     - Substring: C\\C++ Experience
-      Answer: 3
-    - Substring: Embedded
-      Answer: 4
-    - Substring: Front-end development 
-      Answer: 8
-    - Substring: Frontend development 
-      Answer: 8
-    - Substring: Devops
-      Answer: 4
-    - Substring: CI/CD
-      Answer: 4
+      Answer: 
     - Substring: Python
-      Answer: 9
-    - Substring: React
-      Answer: 2
+      Answer: 
     - Substring: JavaScript
-      Answer: 8
-    - Substring: Node.js
-      Answer: 2
-    - Substring: REST
-      Answer: 6
-    - Substring: Java
-      Answer: 6
-    - Substring: .NET
-      Answer: 10
-    - Substring: ASP
-      Answer: 6
+      Answer: 
+    - Substring: Java Experience
+      Answer: 
+    - Substring: Html
+      Answer: 
+    - Substring: CSS
+      Answer: 
+    - Substring: Sass
+      Answer: 
+    - Substring: Jade
+      Answer: 
+    - Substring: ELisp
+      Answer: 
     - Substring: Sql
-      Answer: 8
-    - Substring: Mvc
-      Answer: 6
+      Answer: 
     - Substring: Cobol
-      Answer: 0
-    - Substring: Windows Development
-      Answer: 10
+      Answer: 
+    - Substring: Ruby
+      Answer: 
+    - Substring: Typescript
+      Answer: 
+
+#   Skills
+    - Substring: Embedded
+      Answer: 
+    - Substring: Front-end development
+      Answer: 
+    - Substring: Frontend development
+      Answer: 
+    - Substring: Full-stack development
+      Answer: 
+    - Substring: Full stack development
+      Answer: 
+    - Substring: Devops
+      Answer: 
+    - Substring: CI/CD
+      Answer: 
     - Substring: Software Development
-      Answer: 10
+      Answer: 
+    - Substring: Application Development
+      Answer: 
+    - Substring: Mobile
+      Answer: 
     - Substring: Visual Studio
-      Answer: 10
+      Answer: 
     - Substring: API
-      Answer: 8
-    - Substring: Microsoft
-      Answer: 14
-    - Substring: Cloud
-      Answer: 14
+      Answer: 
+    - Substring: MVVM
+      Answer: 
+    - Substring: CLI
+      Answer: 
+    - Substring: PLC
+      Answer: 
+    - Substring: Debugging
+      Answer: 
+    - Substring: troubleshooting
+      Answer: 
+    - Substring: OOP
+      Answer: 
+    - Substring: Management
+      Answer: 
+    - Substring: back-end
+      Answer: 
+    - Substring: service-oriented architecture
+      Answer: 
+    - Substring: technical
+      Answer: 
+    - Substring: REST
+      Answer: 
+    - Substring: Mvc
+      Answer: 
     - Substring: Database
-      Answer: 10
+      Answer: 
+    - Substring: Industry Experience
+      Answer: 
+    - Substring: Git
+      Answer: 
+    - Substring: Machine Learning
+      Answer: 
+    - Substring: Linux
+      Answer: 
+    - Substring: commercial software product development
+      Answer: 
+
+#   Platforms
+    - Substring: Cloud
+      Answer: 
+    - Substring: Microsoft
+      Answer: 
+    - Substring: Office 365
+      Answer: 
+    - Substring: cloud platform
+      Answer: 
+    - Substring: Azure
+      Answer: 
+    - Substring: Aws
+      Answer: 
+    - Substring: Google Cloud
+      Answer: 
+
+#   Frameworks
+    - Substring: React experience
+      Answer: 
+    - Substring: Node.js experience
+      Answer: 
+    - Substring: .NET
+      Answer: 
+    - Substring: ASP
+      Answer: 
     - Substring: Angular
-      Answer: 1
-    - Substring: Agile
-      Answer: 2
+      Answer: 
+
+#   Custom Questions
+    - Substring: What language are you most comfortable using and why
+      Answer: 
+    - Substring: How do you keep your technology skills current
+      Answer: 
+    - Substring: Check the box below if you would like to receive text messages from the company regarding your status in the hiring process. Data rates may apply.
+      Answer: 
+    - Substring: Do you have a valid Visual Studio
+      Answer: 

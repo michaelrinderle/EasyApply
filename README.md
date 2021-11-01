@@ -18,7 +18,8 @@ Selenium Auto Application Applier
 
 # Job Boards 
  + Indeed 
- + More to come 
+ + Monster
+ + More to come.
 
 # Requirements 
  + .NET 6

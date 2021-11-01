@@ -34,8 +34,9 @@ namespace EasyApply.Models
     public class YmlConfiguration
     {
         public Browser? Browser { get; set; }
-        public OpportunityConfiguration? OpportunityConfiguration { get; set; }
-
+        public OpportunityConfiguration OpportunityConfiguration { get; set; }
+        public IndeedConfiguration? IndeedConfiguration { get; set; }
+        public MonsterConfiguration? MonsterConfiguration { get; set; }
         public List<OpportunityQuestions> OpportunityQuestions { get; set; }
     }
 }

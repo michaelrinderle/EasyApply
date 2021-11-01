@@ -69,5 +69,35 @@ namespace EasyApply.Interfaces
         {
             return await _dataRepository.CheckIndeedOpportunity(link);
         }
+
+        public async Task<bool> UpdateIndeedOpportunity(IndeedOpportunity indeedOpportunity)
+        {
+            return await _dataRepository.UpdateIndeedOpportunity(indeedOpportunity);
+        }
+
+        public async Task<MonsterOpportunity> AddMonsterOpportunity(MonsterOpportunity MonsterOpportunity)
+        {
+            return await _dataRepository.AddMonsterOpportunity(MonsterOpportunity);
+        }
+
+        public async Task<MonsterOpportunity> GetMonsterOpportunity(int id)
+        {
+            return await _dataRepository.GetMonsterOpportunity(id);
+        }
+
+        public async Task<List<MonsterOpportunity>> GetMonsterOpportunities()
+        {
+            return await _dataRepository.GetMonsterOpportunities();
+        }
+
+        public async Task<bool> CheckMonsterOpportunity(string link)
+        {
+            return await _dataRepository.CheckMonsterOpportunity(link);
+        }
+
+        public async Task<bool> UpdateMonsterOpportunity(MonsterOpportunity MonsterOpportunity)
+        {
+            return await _dataRepository.UpdateMonsterOpportunity(MonsterOpportunity);
+        }
     }
 }
