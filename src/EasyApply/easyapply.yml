@@ -14,12 +14,14 @@
 OpportunityConfiguration:
     JobType: Indeed # or Monster
     Database: Sqlite
-    Username: 
-    Password: 
-    Position: 
+    Username:
+    Password:
+    Position:
     Location: Remote
     Resume: c:\resume.pdf
     CoverLetter: c:\cl.pdf
+    ListType: OpportunityTitleOnly # OpportunityTitleAndDescription
+    CompanyBlacklist:
     Whitelist:
     Blacklist:
       - Sr.
@@ -32,13 +34,13 @@ IndeedConfiguration:
 MonsterConfiguration:
     FirstName:
     LastName:
-    Pronouns: 
+    Pronouns:
     PhoneNumber:
     PhoneType:
-    Country: 
-    PostalCode: 
-    Region: 
-    City: 
+    Country:
+    PostalCode:
+    Region:
+    City:
 
 OpportunityQuestions:
 #   FirstOrder
@@ -53,7 +55,7 @@ OpportunityQuestions:
     - Substring: Country
       Answer: United States (+1)
     - Substring: Phone
-      Answer: 
+      Answer:
     - Substring: Do you speak English
       Answer: Yes
     - Substring: Are you at least 18 years or older
@@ -61,23 +63,23 @@ OpportunityQuestions:
     - Substring: Do you hold professional
       Answer: Yes, see resume.
     - Substring: LinkedIn Profile
-      Answer: 
+      Answer:
     - Substring: Address
-      Answer: 
+      Answer:
     - Substring: City
-      Answer: 
+      Answer:
     - Substring: State
-      Answer: 
+      Answer:
     - Substring: Postal Code
-      Answer: 
+      Answer:
     - Substring: Zip
-      Answer: 
+      Answer:
     - Substring: Sex/Gender
-      Answer: 
+      Answer:
     - Substring: Sex
-      Answer: 
+      Answer:
     - Substring: Gender
-      Answer: 
+      Answer:
     - Substring: Willing and able to complete a drug screen and criminal background check
       Answer: Yes
     - Substring: Are you willing to consent to a
@@ -93,9 +95,9 @@ OpportunityQuestions:
 
 #   Education
     - Substring: Degree
-      Answer: 
+      Answer:
     - Substring: Graduation year
-      Answer: 
+      Answer:
     - Substring: What is the highest level of education
       Answer: High School or equivalent
     - Substring: Will you be able to reliably commute or relocate
@@ -229,132 +231,132 @@ OpportunityQuestions:
     - Substring: C#
       Answer: 10
     - Substring: C Experience
-      Answer: 
+      Answer:
     - Substring: C++ Experience
-      Answer: 
+      Answer:
     - Substring: C\\C++ Experience
-      Answer: 
+      Answer:
     - Substring: Python
-      Answer: 
+      Answer:
     - Substring: JavaScript
-      Answer: 
+      Answer:
     - Substring: Java Experience
-      Answer: 
+      Answer:
     - Substring: Html
-      Answer: 
+      Answer:
     - Substring: CSS
-      Answer: 
+      Answer:
     - Substring: Sass
-      Answer: 
+      Answer:
     - Substring: Jade
-      Answer: 
+      Answer:
     - Substring: ELisp
-      Answer: 
+      Answer:
     - Substring: Sql
-      Answer: 
+      Answer:
     - Substring: Cobol
-      Answer: 
+      Answer:
     - Substring: Ruby
-      Answer: 
+      Answer:
     - Substring: Typescript
-      Answer: 
+      Answer:
 
 #   Skills
     - Substring: Embedded
-      Answer: 
+      Answer:
     - Substring: Front-end development
-      Answer: 
+      Answer:
     - Substring: Frontend development
-      Answer: 
+      Answer:
     - Substring: Full-stack development
-      Answer: 
+      Answer:
     - Substring: Full stack development
-      Answer: 
+      Answer:
     - Substring: Devops
-      Answer: 
+      Answer:
     - Substring: CI/CD
-      Answer: 
+      Answer:
     - Substring: Software Development
-      Answer: 
+      Answer:
     - Substring: Application Development
-      Answer: 
+      Answer:
     - Substring: Mobile
-      Answer: 
+      Answer:
     - Substring: Visual Studio
-      Answer: 
+      Answer:
     - Substring: API
-      Answer: 
+      Answer:
     - Substring: MVVM
-      Answer: 
+      Answer:
     - Substring: CLI
-      Answer: 
+      Answer:
     - Substring: PLC
-      Answer: 
+      Answer:
     - Substring: Debugging
-      Answer: 
+      Answer:
     - Substring: troubleshooting
-      Answer: 
+      Answer:
     - Substring: OOP
-      Answer: 
+      Answer:
     - Substring: Management
-      Answer: 
+      Answer:
     - Substring: back-end
-      Answer: 
+      Answer:
     - Substring: service-oriented architecture
-      Answer: 
+      Answer:
     - Substring: technical
-      Answer: 
+      Answer:
     - Substring: REST
-      Answer: 
+      Answer:
     - Substring: Mvc
-      Answer: 
+      Answer:
     - Substring: Database
-      Answer: 
+      Answer:
     - Substring: Industry Experience
-      Answer: 
+      Answer:
     - Substring: Git
-      Answer: 
+      Answer:
     - Substring: Machine Learning
-      Answer: 
+      Answer:
     - Substring: Linux
-      Answer: 
+      Answer:
     - Substring: commercial software product development
-      Answer: 
+      Answer:
 
 #   Platforms
     - Substring: Cloud
-      Answer: 
+      Answer:
     - Substring: Microsoft
-      Answer: 
+      Answer:
     - Substring: Office 365
-      Answer: 
+      Answer:
     - Substring: cloud platform
-      Answer: 
+      Answer:
     - Substring: Azure
-      Answer: 
+      Answer:
     - Substring: Aws
-      Answer: 
+      Answer:
     - Substring: Google Cloud
-      Answer: 
+      Answer:
 
 #   Frameworks
     - Substring: React experience
-      Answer: 
+      Answer:
     - Substring: Node.js experience
-      Answer: 
+      Answer:
     - Substring: .NET
-      Answer: 
+      Answer:
     - Substring: ASP
-      Answer: 
+      Answer:
     - Substring: Angular
-      Answer: 
+      Answer:
 
 #   Custom Questions
     - Substring: What language are you most comfortable using and why
-      Answer: 
+      Answer:
     - Substring: How do you keep your technology skills current
-      Answer: 
+      Answer:
     - Substring: Check the box below if you would like to receive text messages from the company regarding your status in the hiring process. Data rates may apply.
-      Answer: 
+      Answer:
     - Substring: Do you have a valid Visual Studio
-      Answer: 
+      Answer:

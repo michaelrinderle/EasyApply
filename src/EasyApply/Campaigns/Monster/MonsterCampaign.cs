@@ -3,10 +3,10 @@
       __ _/| _/. _  ._/__ /
     _\/_// /_///_// / /_|/
                _/
-    
+
     sof digital 2021
     written by michael rinderle <michael@sofdigital.net>
-    
+
     mit license
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal
@@ -105,7 +105,7 @@ namespace EasyApply.Campaigns.Monster
                 //((IJavaScriptExecutor)WebDriver).ExecuteScript("window.scrollTo(0, document.body.scrollHeight - 1000)");
                 //Thread.Sleep(4000);
 
-                Console.WriteLine($"[*] Pages Scraped :{Counter.Pagination} \n[*] Opportunities Parsed : {Counter.Opportunities}"); 
+                Console.WriteLine($"[*] Pages Scraped :{Counter.Pagination} \n[*] Opportunities Parsed : {Counter.Opportunities}");
             }
         }
 
@@ -139,6 +139,13 @@ namespace EasyApply.Campaigns.Monster
 
                     // parse opportunity
                     var opportunity = this.ParseOpportunity(doc, opportunityLink);
+
+                    // check for black\whitelisted opportunity
+                    if (opportunity.Id == -1)
+                    {
+                        Console.WriteLine($"[*] Rejected : \t{opportunity.Company} - {opportunity.Position}");
+                        return;
+                    }
 
                     // go to opportunity page to determine if applied
                     var status = this.ApplyForOpportunity();
@@ -174,8 +181,6 @@ namespace EasyApply.Campaigns.Monster
 
                     await DataRepository.AddMonsterOpportunity(opportunity);
                 }
-
-
             }
             catch (Exception ex)
             {
@@ -204,6 +209,63 @@ namespace EasyApply.Campaigns.Monster
             if (description != null)
             {
                 opportunity.Description = description.InnerText;
+            }
+
+            // black & white lists
+            bool isBlackWhiteListed = false;
+
+            if (Configuration.OpportunityConfiguration.CompanyBlacklist != null &&
+                Configuration.OpportunityConfiguration.CompanyBlacklist.Any())
+            {
+                foreach (var keyword in Configuration.OpportunityConfiguration.CompanyBlacklist)
+                {
+                    if (opportunity.Company.Contains(keyword))
+                        isBlackWhiteListed = true;
+                }
+            }
+
+            if (Configuration.OpportunityConfiguration.Blacklist != null &&
+                Configuration.OpportunityConfiguration.Blacklist.Any())
+            {
+                foreach (var keyword in Configuration.OpportunityConfiguration.Blacklist)
+                {
+                    if (opportunity.Position.Contains(keyword))
+                        isBlackWhiteListed = true;
+
+                    if (Configuration.OpportunityConfiguration.ListType == Enums.ListType.OpportunityTitleAndDescription)
+                    {
+                        if (!string.IsNullOrEmpty(opportunity.Description))
+                        {
+                            if (opportunity.Description.Contains(keyword))
+                                isBlackWhiteListed = true;
+                        }
+                    }
+                }
+            }
+
+            if (Configuration.OpportunityConfiguration.Whitelist != null &&
+                Configuration.OpportunityConfiguration.Whitelist.Any())
+            {
+                foreach (var keyword in Configuration.OpportunityConfiguration.Whitelist)
+                {
+                    if (opportunity.Position.Contains(keyword))
+                        isBlackWhiteListed = true;
+
+                    if (Configuration.OpportunityConfiguration.ListType == Enums.ListType.OpportunityTitleAndDescription)
+                    {
+                        if (!string.IsNullOrEmpty(opportunity.Description))
+                        {
+                            if (opportunity.Description.Contains(keyword))
+                                isBlackWhiteListed = true;
+                        }
+                    }
+                }
+            }
+
+            if (isBlackWhiteListed)
+            {
+                opportunity.Id = -1;
+                return opportunity;
             }
 
             return opportunity;

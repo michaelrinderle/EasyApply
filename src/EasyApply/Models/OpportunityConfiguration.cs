@@ -3,10 +3,10 @@
       __ _/| _/. _  ._/__ /
     _\/_// /_///_// / /_|/
                _/
-    
+
     sof digital 2021
     written by michael rinderle <michael@sofdigital.net>
-    
+
     mit license
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal
@@ -38,12 +38,14 @@ namespace EasyApply.Models
         public OpportunityType JobType { get; set; }
         public DatabaseType Database { get; set; }
         public string? Username { get; set; }
-        public string? Password { get; set; }  
+        public string? Password { get; set; }
         public string? Position { get; set; }
         public string? Location { get; set; }
         public string? Resume { get; set; }
         public string? CoverLetter { get; set; }
+        public ListType ListType { get; set; }
         public string[]? Whitelist { get; set; }
         public string[]? Blacklist { get; set; }
+        public string[]? CompanyBlacklist { get; set; }
     }
 }
