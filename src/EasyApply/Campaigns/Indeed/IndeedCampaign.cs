@@ -293,49 +293,6 @@ namespace EasyApply.Campaigns.Indeed
                 ((IJavaScriptExecutor)WebDriver).ExecuteScript($"window.open('{opportunity.Link}', 'NewTab')");
                 WebDriver.SwitchTo().Window(WebDriver.WindowHandles[1]);
 
-                // check position &description for white and blacklist keywords
-
-                bool reject = false;
-                var jobDescription = WebDriver.FindElement(By.Id(Constants.IndeedJobDesriptionId)).Text.Split(" ");
-                List<string> descriptionTokens = new();
-
-                if (Configuration.OpportunityConfiguration.Blacklist != null)
-                {
-                    if (!descriptionTokens.Any())
-                    {
-                        descriptionTokens = WebDriver.FindElement(By.Id(Constants.IndeedJobDesriptionId)).Text.Split(" ").ToList();
-                    }
-                    if (Configuration.OpportunityConfiguration.Blacklist.Any())
-                    {
-                        if (!Configuration.OpportunityConfiguration.Blacklist
-                       .Any(x => jobDescription.Contains(x)))
-                        {
-                            Console.WriteLine($"[*] Rejected : \t{opportunity.Company} - {opportunity.Position}");
-                            reject = true;
-                        }
-                    }
-                }
-
-                if (Configuration.OpportunityConfiguration.Whitelist != null)
-                {
-                    descriptionTokens = WebDriver.FindElement(By.Id(Constants.IndeedJobDesriptionId)).Text.Split(" ").ToList();
-                    if (Configuration.OpportunityConfiguration.Whitelist.Any())
-                    {
-                        if (!Configuration.OpportunityConfiguration.Whitelist
-                        .Any(x => jobDescription.Contains(x)))
-                        {
-                            Console.WriteLine($"[*] Rejected : \t{opportunity.Company} - {opportunity.Position}");
-                            reject = true;
-                        }
-                    }
-                }
-
-                if (reject)
-                {
-                    opportunity = null;
-                    return opportunity;
-                }
-
                 // click to apply
                 var wait = new WebDriverWait(WebDriver, TimeSpan.FromSeconds(10));
                 wait.Until(x => x.FindElement(By.XPath(Constants.IndeedXpathApplyButton))).Click();
@@ -344,7 +301,7 @@ namespace EasyApply.Campaigns.Indeed
                 {
                     // look for indeed bug, say applied after already applying
                     WebDriver.FindElement(By.XPath(Constants.IndeedXpathAppliedBugTag));
-                    Debug.WriteLine($"Indeed applied arlready bug");
+                    Debug.WriteLine($"Indeed applied already bug");
                     return opportunity;
                 }
                 catch (NoSuchElementException) { }

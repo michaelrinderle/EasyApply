@@ -3,10 +3,10 @@
       __ _/| _/. _  ._/__ /
     _\/_// /_///_// / /_|/
                _/
-    
+
     sof digital 2021
     written by michael rinderle <michael@sofdigital.net>
-    
+
     mit license
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal
@@ -70,10 +70,10 @@ namespace EasyApply.Factories
 
                         var chromeOptions = new ChromeOptions();
 
-                        if ((bool) browser?.Headless)
+                        if ((bool)browser?.Headless)
                             chromeOptions.AddArguments("--headless");
 
-                        if ((bool) browser?.Incognito)
+                        if ((bool)browser?.Incognito)
                             chromeOptions.AddArguments("--incognito");
 
                         if (!string.IsNullOrEmpty(browser?.WindowWidth))
@@ -88,7 +88,6 @@ namespace EasyApply.Factories
                         }
 
                         return new ChromeDriver(chromeOptions);
-
                     }
                 case BrowserType.Firefox:
                     {
@@ -102,7 +101,7 @@ namespace EasyApply.Factories
                                 Debug.WriteLine(@"[*] Check : C:\tools\selenium\geckodriver.exe");
                                 Debug.WriteLine("[*] Aborting");
                                 Environment.Exit(1);
-                            }                            
+                            }
                         }
 
                         CodePagesEncodingProvider.Instance.GetEncoding(437);
@@ -128,7 +127,6 @@ namespace EasyApply.Factories
                             firefoxOptions.Profile = profileManager.GetProfile(browser.BrowserProfile);
                         }
 
-
                         if (browser.Headless)
                             firefoxOptions.AddArguments("--headless");
 
@@ -140,14 +138,13 @@ namespace EasyApply.Factories
                         if (!string.IsNullOrEmpty(browser.WindowWidth) &&
                             !string.IsNullOrEmpty(browser.WindowHeight))
                         {
-                            driver.Manage().Window.Size = 
+                            driver.Manage().Window.Size =
                                 new Size(int.Parse(browser.WindowWidth), int.Parse(browser.WindowHeight));
                         }
 
                         driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
 
                         return driver;
-
                     }
                 default:
                     {
